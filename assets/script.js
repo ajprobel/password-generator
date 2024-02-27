@@ -1,9 +1,10 @@
+// Assign letters, numbers, and special characters as global variables
 var lowercaseArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercaseArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numericArray = ["0","1","2","3","4","5","6","7","8","9"];
 var specialCharArray = ["!","","#","$","%","&","'","()","*","+","-",".","/",":",";","<","=",">","?","@","[","]","^","_","`","{","|","}","~"];
 
-
+// Debug check to display arrays
 console.log(lowercaseArray);
 console.log(uppercaseArray);
 console.log(numericArray);
@@ -11,10 +12,9 @@ console.log(specialCharArray);
 
 
 
-// Get input from user for password criteria
-
+// Main function: determines characteristics of new password, creates a new array full of possible characters, and pseudo-randomly picks characters
 function generatePassword() {
-  // assigning characteristics to the password
+  // Defines password characteristics as object methods
   var passwordInfo = {
     whatLength: function (n) {
       var n = window.prompt("Input desired password length:\nMust be between 8 and 128 characters");
@@ -22,7 +22,7 @@ function generatePassword() {
       return;
     },
     hasLowercase: function () {
-      var checkLowerCase = window.prompt("Is it okay if it contains Lowercase?");
+      var checkLowerCase = window.prompt("Should the Password include Lowercase?\nEnter 'yes' or 'no'");
       if (checkLowerCase == "yes" || checkLowerCase == "Yes" || checkLowerCase == "YES" || checkLowerCase == "y" || checkLowerCase == "Y") {
         this.hasLowercase = true;
         return;
@@ -32,7 +32,7 @@ function generatePassword() {
       }
     },
     hasUppercase: function () {
-      var checkUpperCase = window.prompt("Is it okay if it contains Uppercase?");
+      var checkUpperCase = window.prompt("Should the Password include Uppercase?\nEnter 'yes' or 'no'");
       if (checkUpperCase == "yes" || checkUpperCase == "Yes" || checkUpperCase == "YES" || checkUpperCase == "y" || checkUpperCase == "Y") {
         this.hasUppercase = true;
         return;
@@ -42,7 +42,7 @@ function generatePassword() {
       }
     },
     hasNumeric: function () {
-      var checkNumeric = window.prompt("Is it okay if it contains Numeric?");
+      var checkNumeric = window.prompt("Should the Password include Numbers?\nEnter 'yes' or 'no'");
       if (checkNumeric == "yes" || checkNumeric == "Yes" || checkNumeric == "YES" || checkNumeric == "y" || checkNumeric == "Y") {
         this.hasNumeric = true;
         return;
@@ -52,7 +52,7 @@ function generatePassword() {
       }
     },
     hasSpecialChar: function () {
-      var checkSpecialChar = window.prompt("Is it okay if it contains Special Characters?\nThese are [insert characters here]");
+      var checkSpecialChar = window.prompt("Should the Password include Special Characters?\nEx: ?!*@$\nEnter 'yes' or 'no'");
       if (checkSpecialChar == "yes" || checkSpecialChar == "Yes" || checkSpecialChar == "YES" || checkSpecialChar == "y" || checkSpecialChar == "Y") {
         this.hasSpecialChar = true;
         return;
@@ -62,10 +62,11 @@ function generatePassword() {
       }
     },
   }
-  // Get input from user for password criteria
+
+  // Calling functions to get input from user for password criteria
   passwordInfo.whatLength();
   if (passwordInfo.whatLength < 8 || passwordInfo.whatLength > 128) {
-    window.alert("WRONG! Please input a length between 8 and 128 characters")
+    window.alert("Error! Please input a length between 8 and 128 characters")
     return;
   }
   passwordInfo.hasLowercase();
@@ -74,12 +75,13 @@ function generatePassword() {
   passwordInfo.hasSpecialChar();
 
   // Debugging password criteria
-  console.log(passwordInfo.whatLength);
-  console.log(passwordInfo.hasLowercase);
-  console.log(passwordInfo.hasUppercase);
-  console.log(passwordInfo.hasNumeric);
-  console.log(passwordInfo.hasSpecialChar);
+  console.log("password length: " + passwordInfo.whatLength);
+  console.log("contains lowercase: " + passwordInfo.hasLowercase);
+  console.log("contains uppercase: " + passwordInfo.hasUppercase);
+  console.log("contains numbers: " + passwordInfo.hasNumeric);
+  console.log("contains special characters: " + passwordInfo.hasSpecialChar);
 
+  // Creating a new array that contains all of the desired elements from the global arrays
   var newArray = undefined;
   if (passwordInfo.hasLowercase && passwordInfo.hasUppercase && passwordInfo.hasNumeric && passwordInfo.hasSpecialChar) {
     newArray = lowercaseArray.concat(uppercaseArray, numericArray, specialCharArray);
@@ -116,6 +118,7 @@ function generatePassword() {
     return;
   }
 
+  // creating empty array for the new password to be put into
   var newPassword = [];
 
   // picks a random element from the new, combined array
@@ -131,16 +134,16 @@ function generatePassword() {
     pickRandomly();
     console.log("new element selected");
   }
-  console.log("The new password was created from: " + newArray.join(""));
 
+  // Debugging information about new password
+  console.log("The new password was created from: " + newArray.join(""));
   console.log("Your new password is " + newPassword.join(""));
 
+  // returns the newly created password as a joined string
   return newPassword.join("");
 }
 
 
-
-// ------------------------------------------ WRITES PASSWORD ---------------------------------------------------------
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
