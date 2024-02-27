@@ -2,18 +2,11 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-The main goal of this application was to provide users with the ability to generate a strong, pseudo-random password based on certain criteria. As time goes on, cybersecurity is ever-increasingly important to keep in mind in order to keep your sensitive information safe. Sometimes coming up with a strong password is challenging, and I hope this application can help!**
+The main goal of this application was to provide users with the ability to generate a strong, pseudo-random password based on certain criteria. As time goes on, cybersecurity is ever-increasingly important to keep in mind in order to keep your sensitive information safe. Sometimes coming up with a strong password is challenging, and I hope this application can help! **Important Note:** This application utilizes `Math.random()` to randomly pick characters. Per MDN Web Docs guidelines, this will not provide a cryptographically secure random selection. Use this application with discretion.
 
 The application features a simple interface for ease of use; after selecting the "Generate Password" button, users will go through prompts to determine characteristics and criteria for their new password, and the new password will appear in the main box labeled "Your Secure Password."
 
-While completing this project/application, my knowledge about JavaScript was put to the test. I learned how to properly utilize different array methods (concat, join, push), object methods, conditional statements, and variables within different scopes.
+While completing this project/application, my knowledge about JavaScript was put to the test. I learned how to properly utilize arrays, different array methods (concat, join, push), object methods, conditional statements, and variables within different scopes.
 
 ## Installation
 
@@ -21,7 +14,7 @@ N/A
 
 ## Usage
 
-To use this application, please go to [link here]
+To use this application, please use [this link](https://ajprobel.github.io/password-generator/)
 
 Once on the page, click the button labeled "Generate Password."
 Once the button is selected, a series of window prompts appear in the browser:
